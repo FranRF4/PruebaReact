@@ -1,5 +1,14 @@
 import{useState} from "react"
-export function XFollowCard({userName, name, isFollowing}){
+
+export function XFollowCard({children ,userName, }){
+    const [isFollowing,setIsFollowing]= useState (false)
+
+    const text =isFollowing ? 'Sigiendo' : 'Seguir'
+    const buttonClassName = isFollowing ? 'x-followCard-button   is-following' : 'x-followCard-button'
+
+    const handleClick = () =>  {
+        setIsFollowing(!isFollowing)
+    }
 
     const imageSrc = `https://unavatar.io/${userName}`
     return(
@@ -7,14 +16,15 @@ export function XFollowCard({userName, name, isFollowing}){
             <header className="x-followCard-header">
                 <img className="x-followCard-avatar" alt="El avatar de Twitch" src={imageSrc} />
                 <div className="x-followCard-info">
-                    <strong>{name}</strong>
+                    <strong>{children}</strong>
                 <span className="x-followCard-infoUsername">@{userName}</span>
                 </div>
             </header>
 
             <aside>
-                <button className="x-followCard-button"> 
-                    Seguir
+                <button className={buttonClassName} onClick={handleClick}> 
+                   <span className="x-followCard-text"> {text}</span>
+                    <span className="x-followCard-stopFollow">Dejar de seguir</span>
                 </button>
             </aside>
         </article>
