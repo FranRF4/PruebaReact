@@ -1,17 +1,12 @@
-export function App () {
-    return(
-        <article style={{display:'flex',alignItems:'center',color:'#fff'}}>
-            <header>
-                <img alt="El avatar de Twitch" src="https://unavatar.io/Real%20Betis%20Balompie" />
-                <div><strong>Twitch</strong></div>
-                <span>@Twitch.Tv</span>
-            </header>
+import './App.css'
+import { XFollowCard } from './XFollowCard'
 
-            <aside>
-                <button> 
-                    Seguir
-                </button>
-            </aside>
-        </article>
+export function App() {
+    return (
+        <section className='App'>
+            <XFollowCard userName={"midudev"} name={"Miguel Ángel Durán"} />
+            <XFollowCard userName={"pheralb"} name={"Pablo Hernandez "} />
+            <XFollowCard userName={"elonmusk"} name={"Elon Musk "} />
+        </section>
     )
 }
